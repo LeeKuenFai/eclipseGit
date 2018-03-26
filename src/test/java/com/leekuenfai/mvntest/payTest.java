@@ -20,6 +20,7 @@ public class payTest {
 	public void testOrderPay() {
 		int total = pay.orderPay(10, 9);
 		System.out.println(total);
+		System.out.println(total);
 		Assert.assertEquals(90, total);
 		
 	}
