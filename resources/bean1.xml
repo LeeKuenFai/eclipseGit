@@ -17,6 +17,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<!-- difference between prototype  and singleton -->
 	<bean id = "user" class = "com.leekuenfai.mvntest.User" scope = "prototype"></bean>
 	
+	<!--  属性注入  -->
 	<bean id = "propertyInject" class = "com.leekuenfai.mvntest.PropertyInject" scope = "prototype">
 		<property name="injectString" value = "设计模式"></property>
 	</bean>
@@ -26,4 +27,42 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
 	<bean id = "classInject" class = "com.leekuenfai.mvntest.ClassInject" scope = "prototype">
 		<property name="propertyInject" ref = "propertyInject"></property>
 	</bean>
+	
+	<!-- 复杂属性的注入，诸如list arr map 等复杂类型 -->
+	<bean id = "complexPropertityInject" class = "com.leekuenfai.mvntest.ComplexPropertityInject" scope = "prototype">
+		<property name="arrs" >
+			<list>
+				<value>qwert</value>
+				<value>asdfg</value>
+				<value>zxcvb</value>
+			</list>
+		</property>
+		
+		<property name="list" >
+			<list>
+				<value>aaaaa</value>
+				<value>bbbbb</value>
+				<value>ccccc</value>
+			</list>
+		</property>
+		
+		<property name="property" >
+			<props>
+				<prop key = "driveClass">com.mysql.jdbc.Driver</prop>
+				<prop key = "username">root</prop>
+			</props>
+		</property>
+		
+		
+		<property name="map" >
+			<map>
+				<entry key = "a" value = "aaaa"></entry>
+				<entry key = "b" value = "bbbb"></entry>
+				<entry key = "c" value = "cccc"></entry>
+			</map>
+		</property>
+		
+	</bean>
+	
+	
 </beans>
